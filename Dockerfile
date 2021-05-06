@@ -83,14 +83,16 @@ RUN apt-get update \
  rm /etc/localtime && \
  cp /usr/share/zoneinfo/Japan /etc/localtime 
 
-RUN adduser --shell /bin/bash --disabled-password --gecos '' a_normal_user
-RUN adduser a_normal_user sudo
+RUN adduser --shell /bin/bash --disabled-password --gecos '' user01
+RUN adduser user01 sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
-RUN  mkdir -p ${SINGULARITY_TMPDIR} && chown -R a_normal_user ${SINGULARITY_TMPDIR}
-RUN  mkdir /home/data
+RUN  mkdir -p ${SINGULARITY_TMPDIR} && chown -R user01 ${SINGULARITY_TMPDIR} && \
+	 mkdir /home/user01/data && \
+	 mkdir /home/user01/works && \
+	 mkdir /home/user01/public_html
 
-USER a_normal_user
-WORKDIR /home/a_normal_user
-# ENV  PS1="\u@\H:\w (\D{%F} \t)\n$ "
-# ENTRYPOINT ["/usr/local/singularity/bin/singularity"]
+
+USER user01
+WORKDIR /home/user01
+
