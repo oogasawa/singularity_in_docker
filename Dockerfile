@@ -17,10 +17,12 @@ RUN apt-get update && apt-get upgrade && \
     squashfs-tools \
     libseccomp-dev \
     wget \
+	curl \
     pkg-config \
     git \
     cryptsetup-bin \
 	python3-dev \
+	emacs \
 	ca-certificates
 
 
@@ -81,7 +83,7 @@ RUN apt-get update \
  rm /etc/localtime && \
  cp /usr/share/zoneinfo/Japan /etc/localtime 
 
-RUN adduser -ms --disabled-password --gecos '' a_normal_user
+RUN adduser --shell /bin/bash --disabled-password --gecos '' a_normal_user
 RUN adduser a_normal_user sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
