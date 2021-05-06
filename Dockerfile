@@ -81,7 +81,7 @@ RUN apt-get update \
  rm /etc/localtime && \
  cp /usr/share/zoneinfo/Japan /etc/localtime 
 
-RUN adduser --disabled-password --gecos '' a_normal_user
+RUN adduser -ms --disabled-password --gecos '' a_normal_user
 RUN adduser a_normal_user sudo
 RUN echo '%sudo ALL=(ALL) NOPASSWD:ALL' >> /etc/sudoers
 
