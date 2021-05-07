@@ -121,9 +121,16 @@ install_biotools() {
 }
 
 
-# Install 
-# https://raw.githubusercontent.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Second-Edition/master/docker/Dockerfile
+install_BioinformaticsWithPython2ndEd() {
+	git clone https://github.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Second-Edition.git
+}
 
+
+
+# ---
+
+# Install basic analysis tools.
+# https://raw.githubusercontent.com/PacktPublishing/Bioinformatics-with-Python-Cookbook-Second-Edition/master/docker/Dockerfile
 
 function main {
 	install_GCC
@@ -131,9 +138,9 @@ function main {
 	install_python_packages
 	install_R
 	install_R_packages
-	#install_nodejs
-	#install_biotools
-
+	install_nodejs
+	install_biotools
+	# install_BioinformaticsWithPython2ndEd
 }
 
 
