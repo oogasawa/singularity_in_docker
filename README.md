@@ -30,7 +30,7 @@ docker build -t oogasawa/singindocker ./singularity-in-docker
 
 
 ```bash
-sudo docker run -it --name test_env02 \
+sudo docker run -it --privileged --name test_env02 \
   -v /home/oogasawa/data:/home/user01/data \
   -v /home/oogasawa/works:/home/user01/works \
   -v /home/oogasawa/public_html:/home/user01/public_html \
