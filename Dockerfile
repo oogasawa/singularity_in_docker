@@ -54,7 +54,7 @@ RUN cd /usr/local/src && \
     https://github.com/hpcng/singularity/releases/download/v${SING_VERSION}/singularity-${SING_VERSION}.tar.gz && \
     tar -xzf singularity-${SING_VERSION}.tar.gz && \
     cd singularity && \
-	./mconfig && \
+	./mconfig --without-suid && \
     make -C ./builddir && \
     make -C ./builddir install
 
