@@ -10,20 +10,53 @@ ENV DEBIAN_FRONTEND=noninteractive
 # https://sylabs.io/guides/3.7/admin-guide/installation.html
 # https://stackoverflow.com/questions/45165813/x509-certificate-signed-by-unknown-authority
 RUN apt-get update && apt-get upgrade && \
-    apt-get install -y --no-install-recommends tzdata \
-    build-essential \
+    apt-get install -y --no-install-recommends tzdata 
+    
+RUN apt-get install -y build-essential \
+    gcc \
+    gfortran \
+    g++ \
+    cmake \
+    dh-autoreconf \
+    libarchive-dev \
+    libc6-i386 \
+    libpng-dev \
+    netpbm \
+    libnetpbm10 \
+    libnetpbm10-dev
+    flex \
+    bison \
     uuid-dev \
     libgpgme-dev \
     squashfs-tools \
     libseccomp-dev \
-    wget \
-	curl \
     pkg-config \
     git \
     cryptsetup-bin \
-	python3-dev \
-	emacs \
-	ca-certificates
+    python3-dev \
+    ca-certificates
+
+RUN apt-get install -y  ncdu \
+    sysstat \
+    tree \
+    sl \
+    cowsay \
+    git bzip2 pigz 
+
+RUN apt-get install -y openssh-client \
+    cadaver \
+    ntp \
+    lftp \
+    wget \
+    curl \
+    net-tools
+
+RUN apt install -y openjdk-15-jdk \
+    maven
+  
+RUN apt-get install -y emacs \
+    emacs-goodies-el
+
 
 
 # Install Go
